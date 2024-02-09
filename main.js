@@ -1,19 +1,3 @@
-class Alumno {
-    constructor(nombre, apellidos, edad, materias, calificaciones) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.edad = edad;
-        this.materias = materias;
-        this.calificaciones = calificaciones;
-    }
-}
-
-const materiasDeCoding = ["HTML", "CSS", "JavaScript"]
-const materiasDeEconomia = ["Cálculo", "Estadística", "Econometría", "Finanzas"]
-
-//Creé los primeros alumno
-let alumno1 = new Alumno ("Ángel", "Canché", 22, materiasDeCoding)
-let alumno2 = new Alumno ("Abraham", "Cajún", 22, materiasDeEconomia)
 
 //Creé la pila con ayuda de Chat GPT
 class Stack {
@@ -63,18 +47,50 @@ class Stack {
     }
 }
 
-let DataBase = new Stack();
+const DataBase = new Stack();
 console.log(DataBase.isEmpty());
 
-//Añado el primer elemento a la pila
-DataBase.push(alumno1);
-console.log(DataBase.size());
+//La clase para crear alumnos y añadirlos a la DataBase
+class Alumno {
+    constructor(nombre, apellidos, edad, materias, calificaciones, DataBase) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.edad = edad;
+        this.materias = materias;
+        this.calificaciones = calificaciones;
+    }
+
+    joinToDataBase () {
+        DataBase.push(this);
+    }
+}
+
+const materiasDeCoding = ["HTML", "CSS", "JavaScript"]
+const materiasDeEconomia = ["Cálculo", "Estadística", "Econometría", "Finanzas"]
+
+//Creé los primeros alumno
+let alumno1 = new Alumno ("Ángel", "Canché", 22, materiasDeCoding,)
+let alumno2 = new Alumno ("Abraham", "Cajún", 22, materiasDeEconomia)
+
+//Mando a llamar a la función que añadé a los alumnos a la base de datos
+alumno1.joinToDataBase();
 console.log(DataBase.peek());
+
+alumno2.joinToDataBase();
+console.log(DataBase.peek());
+
+
+
+//Añado el primer elemento a la pila
+// DataBase.push(alumno1);
+// console.log(DataBase.size());
+// console.log(DataBase.peek());
 
 //Añado el segundo elemento a la pila
-DataBase.push(alumno2);
-console.log(DataBase.peek());
+// DataBase.push(alumno2);
+// console.log(DataBase.peek());
 
 //Elimino el último elemento de la pila
-DataBase.pop();
-console.log(DataBase.peek());
+// DataBase.pop();
+// console.log(DataBase.peek());
+
