@@ -1,50 +1,68 @@
-//Constructor para crear la pila
-class Stack {
+// Definir la clase Node para los nodos de la lista enlazada
+class Node {
+    constructor(data) {
+      this.data = data;
+      this.next = null;
+    }
+  }
+  
+  // Definir la clase Stack para la estructura de datos stack
+  class Stack {
     constructor() {
-        this.items = []; // Inicializa un array para almacenar los elementos del stack
+      this.top = null;
+      this.size = 0;
     }
-
+  
     // Método para agregar un elemento al stack
-    push(element) {
-        this.items.push(element);
+    push(data) {
+      const newNode = new Node(data);
+      newNode.next = this.top;
+      this.top = newNode;
+      this.size++;
     }
-
-    // Método para remover y devolver el elemento en la cima del stack
+  
+    // Método para eliminar y devolver el elemento superior del stack
     pop() {
-        if (this.isEmpty()) {
-            return "El stack está vacío";
-        }
-        return this.items.pop();
+      if (!this.top) {
+        return null;
+      }
+      const poppedNode = this.top;
+      this.top = this.top.next;
+      poppedNode.next = null;
+      this.size--;
+      return poppedNode.data;
     }
-
-    // Método para devolver el elemento en la cima del stack sin removerlo
+  
+    // Método para ver el elemento superior del stack sin sacarlo
     peek() {
-        if (this.isEmpty()) {
-            return "El stack está vacío";
-        }
-        return this.items[this.items.length - 1];
+      return this.top ? this.top.data : null;
     }
-
+  
     // Método para verificar si el stack está vacío
     isEmpty() {
-        return this.items.length === 0;
+      return this.size === 0;
     }
-
+  
     // Método para obtener el tamaño del stack
-    size() {
-        return this.items.length;
+    getSize() {
+      return this.size;
     }
-
     // Método para vaciar el stack
     clear() {
-        this.items = [];
+    this.top = null;
+    this.size = 0;
     }
 
-    // Método para imprimir los elementos del stack
+    // Método para imprimir todos los elementos del stack
     print() {
-        console.log(this.items.toString());
+    let current = this.top;
+    while (current) {
+      console.log(current.data);
+      current = current.next;
+    }
     }
 }
+
 
 //Creé la pila
 const DataBase = new Stack();
@@ -97,17 +115,5 @@ let alumno2 = new Alumno ("Abraham", "Cajún", 22)
 let alumno3 = new Alumno ("Joselito", "Wisconsin", 19)
 
 //Testeando
-alumno1.subjects();
-alumno1.grades();
-alumno1.joinToDataBase();
-console.log(DataBase.peek());
-
-alumno2.subjects();
-alumno2.grades();
-alumno2.joinToDataBase();
-console.log(DataBase.peek());
-
-alumno3.subjects();
-alumno3.grades();
-alumno3.joinToDataBase();
+DataBase.push(alumno1);
 console.log(DataBase.peek());
