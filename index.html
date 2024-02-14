@@ -11,23 +11,26 @@
 </head>
 <body>
     <div class="container">
-        <form>
+        <form id="formulario">
             <div class="form-floating my-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Nombre">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Nombre"  id="input-name" required>
                 <label for="floatingInput">Nombre (s)</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingPassword" placeholder="Apellido">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Apellido"  id="input-lastname" required>
                 <label for="floatingPassword">Apellidos</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="floatingPassword" placeholder="Edad">
+                <input type="number" class="form-control" id="floatingPassword" placeholder="Edad"  id="input-age" required>
                 <label for="floatingPassword">Edad</label>
             </div>
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary" type="button" onclick="inscribir">Inscribir</button>
+                <button class="btn btn-primary" type="button" onclick="next">Continuar</button>
+            </div> 
         </form>
+        <div id="student-info"></div>
 
-        <button>Inscribirse</button>
-        <button>Continuar</button>
     </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-// Definir la clase Node para los nodos de la lista enlazada
+//Linked List
 class Node {
     constructor(data) {
       this.data = data;
@@ -6,22 +6,19 @@ class Node {
     }
   }
   
-  // Definir la clase Stack para la estructura de datos stack
   class Stack {
     constructor() {
       this.top = null;
       this.size = 0;
     }
-  
-    // Método para agregar un elemento al stack
+
     push(data) {
       const newNode = new Node(data);
       newNode.next = this.top;
       this.top = newNode;
       this.size++;
     }
-  
-    // Método para eliminar y devolver el elemento superior del stack
+
     pop() {
       if (!this.top) {
         return null;
@@ -32,28 +29,24 @@ class Node {
       this.size--;
       return poppedNode.data;
     }
-  
-    // Método para ver el elemento superior del stack sin sacarlo
+
     peek() {
       return this.top ? this.top.data : null;
     }
-  
-    // Método para verificar si el stack está vacío
+
     isEmpty() {
       return this.size === 0;
     }
-  
-    // Método para obtener el tamaño del stack
+
     getSize() {
       return this.size;
     }
-    // Método para vaciar el stack
+
     clear() {
     this.top = null;
     this.size = 0;
     }
 
-    // Método para imprimir todos los elementos del stack
     print() {
     let current = this.top;
     while (current) {
@@ -63,18 +56,14 @@ class Node {
     }
 }
 
-
 //Creé la pila
 const DataBase = new Stack();
-console.log(DataBase.isEmpty());
 
-//Las materias que se asignarán de manera aleatória
+//Las materias
 const materiasDeCoding = ["HTML", "CSS", "JavaScript"]
 const materiasDeEconomia = ["Estadística", "Desarrollo Regional", "Finanzas"]
 const materiasDeMusica = ["Teoría musical", "Técnica de instrumento", "Ensamble"]
 const asignaturas = [materiasDeCoding, materiasDeEconomia, materiasDeMusica]
-
-// Generar un número aleatorio entre 0 y 2 (la longitud de la lista de opciones)
 const indiceAleatorio = Math.floor(Math.random() * asignaturas.length)
 
 //Las posibles calificaciones
@@ -109,7 +98,6 @@ class Alumno {
     }
 }
 
-//Creé los primeros alumnos
 let alumno1 = new Alumno ("Ángel", "Canché", 22)
 let alumno2 = new Alumno ("Abraham", "Cajún", 22)
 let alumno3 = new Alumno ("Joselito", "Wisconsin", 19)
