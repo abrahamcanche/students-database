@@ -83,17 +83,17 @@ class Alumno {
     }
 
     //Función para asignarle sus materias de manera aleatoria
-    subjects () {
+    subjects() {
         this.materias = asignaturas[indiceAleatorio];
         }
 
     //Función para asignarle sus calificaciones
-    grades () {
+    grades() {
         this.calificaciones = [posiblesCalificaciones[indiceAleatorio2], posiblesCalificaciones[indiceAleatorio3], posiblesCalificaciones[indiceAleatorio4]];
     }
 
         //Función para añadir a la pila
-    joinToDataBase () {
+    joinToDataBase() {
         DataBase.push(this);
     }
 }
@@ -102,6 +102,22 @@ let alumno1 = new Alumno ("Ángel", "Canché", 22)
 let alumno2 = new Alumno ("Abraham", "Cajún", 22)
 let alumno3 = new Alumno ("Joselito", "Wisconsin", 19)
 
-//Testeando
-DataBase.push(alumno1);
-console.log(DataBase.peek());
+//Crear alumno y asignarle materias y calificaciones
+function inscribir() {
+  const nameInput = document.getElementById("floatingInputName").value;
+  const lastnameInput = document.getElementById("floatingInputLastname").value;
+  const ageInput = document.getElementById("floatingInputAge").value;
+
+  let newAlumno = new Alumno (nameInput, lastnameInput, ageInput);
+  newAlumno.subjects();
+  newAlumno.grades();
+  DataBase.push(newAlumno);
+}
+
+//Imprimir en pantalla la información del alumno recién creado
+const zonaDeImpresion = document.getElementById("student-info");
+
+function next() {
+  const info = DataBase.peek();
+  zonaDeImpresion.innerHTML = `${info.nombre} ${info.apellidos} ${info.edad} ${info.materias} ${info.calificaciones}`;
+}
