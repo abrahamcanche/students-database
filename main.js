@@ -108,16 +108,30 @@ function inscribir() {
   const lastnameInput = document.getElementById("floatingInputLastname").value;
   const ageInput = document.getElementById("floatingInputAge").value;
 
-  let newAlumno = new Alumno (nameInput, lastnameInput, ageInput);
+  const newAlumno = new Alumno (nameInput, lastnameInput, ageInput);
   newAlumno.subjects();
   newAlumno.grades();
   DataBase.push(newAlumno);
+
+  alert("Por favor presione el botón CONTINUAR")
 }
 
 //Imprimir en pantalla la información del alumno recién creado
-const zonaDeImpresion = document.getElementById("student-info");
+const zonaDeImpresion1 = document.getElementById("lastname");
+const zonaDeImpresion2 = document.getElementById("name");
+const zonaDeImpresion3 = document.getElementById("age");
+
+function noHide() {
+  const div = document.getElementById("credencial");
+  div.style.display = "block";
+}
 
 function next() {
   const info = DataBase.peek();
-  zonaDeImpresion.innerHTML = `${info.nombre} ${info.apellidos} ${info.edad} ${info.materias} ${info.calificaciones}`;
+
+  zonaDeImpresion1.innerHTML = `${info.apellidos}`;
+  zonaDeImpresion2.innerHTML = `${info.nombre}`;
+  zonaDeImpresion3.innerHTML = `${info.edad} años`;
+
+  noHide();
 }
