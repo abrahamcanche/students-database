@@ -102,6 +102,43 @@ let alumno1 = new Alumno ("Ángel", "Canché", 22)
 let alumno2 = new Alumno ("Abraham", "Cajún", 22)
 let alumno3 = new Alumno ("Joselito", "Wisconsin", 19)
 
+//Imprimir en pantalla la información del alumno recién creado
+const zonaDeImpresion1 = document.getElementById("lastname");
+const zonaDeImpresion2 = document.getElementById("name");
+const zonaDeImpresion3 = document.getElementById("age");
+
+function noHide() {
+  const div = document.getElementById("credencial-y-boleta");
+  div.style.display = "block";
+}
+
+function next() {
+  const info = DataBase.peek();
+
+  zonaDeImpresion1.innerHTML = `${info.apellidos}`;
+  zonaDeImpresion2.innerHTML = `${info.nombre}`;
+  zonaDeImpresion3.innerHTML = `${info.edad} años`;
+}
+
+//Imprimir tabla de calificaciones en pantalla
+const materia1 = document.getElementById("materia1");
+const calificacion1 = document.getElementById("calificacion1");
+const materia2 = document.getElementById("materia2");
+const calificacion2 = document.getElementById("calificacion2");
+const materia3 = document.getElementById("materia3");
+const calificacion3 = document.getElementById("calificacion3");
+
+function mostrarCalificaciones() {
+  const info = DataBase.peek();
+
+  materia1.innerHTML = `${info.materias[0]}`;
+  materia2.innerHTML = `${info.materias[1]}`;
+  materia3.innerHTML = `${info.materias[2]}`;
+  calificacion1.innerHTML = `${info.calificaciones[0]}`;
+  calificacion2.innerHTML = `${info.calificaciones[1]}`;
+  calificacion3.innerHTML = `${info.calificaciones[2]}`;
+}
+
 //Crear alumno y asignarle materias y calificaciones
 function inscribir() {
   const nameInput = document.getElementById("floatingInputName").value;
@@ -113,25 +150,7 @@ function inscribir() {
   newAlumno.grades();
   DataBase.push(newAlumno);
 
-  alert("Por favor presione el botón CONTINUAR")
-}
-
-//Imprimir en pantalla la información del alumno recién creado
-const zonaDeImpresion1 = document.getElementById("lastname");
-const zonaDeImpresion2 = document.getElementById("name");
-const zonaDeImpresion3 = document.getElementById("age");
-
-function noHide() {
-  const div = document.getElementById("credencial");
-  div.style.display = "block";
-}
-
-function next() {
-  const info = DataBase.peek();
-
-  zonaDeImpresion1.innerHTML = `${info.apellidos}`;
-  zonaDeImpresion2.innerHTML = `${info.nombre}`;
-  zonaDeImpresion3.innerHTML = `${info.edad} años`;
-
+  next();
   noHide();
+  mostrarCalificaciones();
 }
