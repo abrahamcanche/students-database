@@ -98,9 +98,20 @@ class Alumno {
     }
 }
 
-let alumno1 = new Alumno ("Ángel", "Canché", 22)
-let alumno2 = new Alumno ("Abraham", "Cajún", 22)
-let alumno3 = new Alumno ("Joselito", "Wisconsin", 19)
+let alumno1 = new Alumno ("Ángel", "Canché", 22, materiasDeCoding)
+let alumno2 = new Alumno ("Abraham", "Cajún", 22, materiasDeEconomia)
+let alumno3 = new Alumno ("Joselito", "Wisconsin", 19, materiasDeMusica)
+let alumno4 = new Alumno ("Zabdiel", "Pérez", 18, materiasDeEconomia)
+let alumno5 = new Alumno ("Carol", "Martinez", 17, materiasDeMusica)
+let alumno6 = new Alumno ("Jesús", "Herrera", 25, materiasDeCoding)
+let alumno7 = new Alumno ("Samuel", "García", 28, materiasDeEconomia)
+let alumno8 = new Alumno ("Monse", "Jimenez", 27, materiasDeMusica)
+let alumno9 = new Alumno ("Anahi", "Oliva", 23, materiasDeMusica)
+let alumno10 = new Alumno ("Omar", "Zuluaga", 23, materiasDeEconomia)
+DataBase.push(alumno1, alumno2,alumno3, alumno4, alumno5, alumno6, alumno7, alumno8, alumno9, alumno10);
+DataBase.push(alumno2);
+DataBase.push(alumno3);
+DataBase.push(alumno4);
 
 //Imprimir en pantalla la información del alumno recién creado
 const zonaDeImpresion1 = document.getElementById("lastname");
